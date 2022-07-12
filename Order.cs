@@ -22,21 +22,19 @@ namespace csharp_ecommerce_db
         //relazione con Customer
         [Column("customer_id")]
         public int CustomerId { get; set; }
-        Customer Customer { get; set; }
+        public Customer Customer { get; set; }
 
         ////relazione con Product
         //public List<Product> Products { get; set; }
 
-        //relazione con OrderProductQuantities
+        //relazione con OrderProduct
         public List<OrderProduct> OrderProduct { get; set; }
 
-        public Order(int amount, DateTime date, string status, Customer customer)
+        public Order(int amount, DateTime date, string status, int customerId)
         {
             this.Amount = amount;
             this.Date = date;
             this.Status = status;
-            this.Customer = customer;
-            this.CustomerId = customer.Id;
         }
     }
 }

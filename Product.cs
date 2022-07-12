@@ -24,8 +24,8 @@ namespace csharp_ecommerce_db
         ////relazione con Order
         //public List<Order> Orders { get; set; }
 
-        //relazione con OrderProductQuantities
-        public List<OrderProduct> OrderProductQuantities { get; set; }
+        //relazione con OrderProduct
+        public List<OrderProduct> OrderProduct { get; set; }
 
         public Product(string name, decimal price, string description)
         {

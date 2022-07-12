@@ -26,5 +26,11 @@ namespace csharp_ecommerce_db
         [Column("product_id")]
         public int ProductId { get; set; }
         public Product Product { get; set; }
+
+
+        public OrderProduct(int orderId, int productId, int quantity)
+        {
+            Quantity = quantity;
+        }
     }
 }
