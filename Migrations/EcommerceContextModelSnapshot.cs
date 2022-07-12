@@ -76,12 +76,12 @@ namespace csharp_ecommerce_db.Migrations
                     b.ToTable("orders");
                 });
 
-            modelBuilder.Entity("csharp_ecommerce_db.OrderProductQuantity", b =>
+            modelBuilder.Entity("csharp_ecommerce_db.OrderProduct", b =>
                 {
                     b.Property<int>("OrderProductQuantityId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
-                        .HasColumnName("product_order_quantity_id");
+                        .HasColumnName("order_product_id");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("OrderProductQuantityId"), 1L, 1);
 
@@ -102,7 +102,7 @@ namespace csharp_ecommerce_db.Migrations
 
                     b.HasIndex("ProductId");
 
-                    b.ToTable("order_product_quantity");
+                    b.ToTable("order_product");
                 });
 
             modelBuilder.Entity("csharp_ecommerce_db.Product", b =>
@@ -138,7 +138,7 @@ namespace csharp_ecommerce_db.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("csharp_ecommerce_db.OrderProductQuantity", b =>
+            modelBuilder.Entity("csharp_ecommerce_db.OrderProduct", b =>
                 {
                     b.HasOne("csharp_ecommerce_db.Order", "Order")
                         .WithMany("OrderProductQuantities")

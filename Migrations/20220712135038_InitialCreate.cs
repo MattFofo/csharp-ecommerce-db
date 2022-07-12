@@ -62,10 +62,10 @@ namespace csharp_ecommerce_db.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "order_product_quantity",
+                name: "order_product",
                 columns: table => new
                 {
-                    product_order_quantity_id = table.Column<int>(type: "int", nullable: false)
+                    order_product_id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Quantity = table.Column<int>(type: "int", nullable: false),
                     order_id = table.Column<int>(type: "int", nullable: false),
@@ -73,15 +73,15 @@ namespace csharp_ecommerce_db.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_order_product_quantity", x => x.product_order_quantity_id);
+                    table.PrimaryKey("PK_order_product", x => x.order_product_id);
                     table.ForeignKey(
-                        name: "FK_order_product_quantity_orders_order_id",
+                        name: "FK_order_product_orders_order_id",
                         column: x => x.order_id,
                         principalTable: "orders",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_order_product_quantity_products_product_id",
+                        name: "FK_order_product_products_product_id",
                         column: x => x.product_id,
                         principalTable: "products",
                         principalColumn: "Id",
@@ -89,13 +89,13 @@ namespace csharp_ecommerce_db.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_order_product_quantity_order_id",
-                table: "order_product_quantity",
+                name: "IX_order_product_order_id",
+                table: "order_product",
                 column: "order_id");
 
             migrationBuilder.CreateIndex(
-                name: "IX_order_product_quantity_product_id",
-                table: "order_product_quantity",
+                name: "IX_order_product_product_id",
+                table: "order_product",
                 column: "product_id");
 
             migrationBuilder.CreateIndex(
@@ -107,7 +107,7 @@ namespace csharp_ecommerce_db.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "order_product_quantity");
+                name: "order_product");
 
             migrationBuilder.DropTable(
                 name: "orders");
