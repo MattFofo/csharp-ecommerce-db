@@ -28,6 +28,15 @@ namespace csharp_ecommerce_db
         //public List<Product> Products { get; set; }
 
         //relazione con OrderProductQuantities
-        public List<OrderProduct> OrderProductQuantities { get; set; }
+        public List<OrderProduct> OrderProduct { get; set; }
+
+        public Order(int amount, DateTime date, string status, Customer customer)
+        {
+            this.Amount = amount;
+            this.Date = date;
+            this.Status = status;
+            this.Customer = customer;
+            this.CustomerId = customer.Id;
+        }
     }
 }

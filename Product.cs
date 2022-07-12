@@ -17,6 +17,7 @@ namespace csharp_ecommerce_db
         [Required]
         public string Name { get; set; }
         public string Description { get; set; }
+
         [Column(TypeName = "decimal(10,2)")]
         public decimal Price { get; set; }
 
@@ -25,5 +26,12 @@ namespace csharp_ecommerce_db
 
         //relazione con OrderProductQuantities
         public List<OrderProduct> OrderProductQuantities { get; set; }
+
+        public Product(string name, decimal price, string description)
+        {
+            this.Name = name;
+            this.Price = price;
+            this.Description = description;
+        }
     }
 }
