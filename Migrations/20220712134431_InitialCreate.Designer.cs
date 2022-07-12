@@ -12,7 +12,7 @@ using csharp_ecommerce_db;
 namespace csharp_ecommerce_db.Migrations
 {
     [DbContext(typeof(EcommerceContext))]
-    [Migration("20220712132347_InitialCreate")]
+    [Migration("20220712134431_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -82,7 +82,8 @@ namespace csharp_ecommerce_db.Migrations
                 {
                     b.Property<int>("OrderProductQuantityId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("product_order_quantity_id");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("OrderProductQuantityId"), 1L, 1);
 
@@ -130,21 +131,6 @@ namespace csharp_ecommerce_db.Migrations
                     b.ToTable("products");
                 });
 
-            modelBuilder.Entity("OrderProduct", b =>
-                {
-                    b.Property<int>("OrdersId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ProductsId")
-                        .HasColumnType("int");
-
-                    b.HasKey("OrdersId", "ProductsId");
-
-                    b.HasIndex("ProductsId");
-
-                    b.ToTable("OrderProduct");
-                });
-
             modelBuilder.Entity("csharp_ecommerce_db.Order", b =>
                 {
                     b.HasOne("csharp_ecommerce_db.Customer", null)
@@ -171,21 +157,6 @@ namespace csharp_ecommerce_db.Migrations
                     b.Navigation("Order");
 
                     b.Navigation("Product");
-                });
-
-            modelBuilder.Entity("OrderProduct", b =>
-                {
-                    b.HasOne("csharp_ecommerce_db.Order", null)
-                        .WithMany()
-                        .HasForeignKey("OrdersId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("csharp_ecommerce_db.Product", null)
-                        .WithMany()
-                        .HasForeignKey("ProductsId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
                 });
 
             modelBuilder.Entity("csharp_ecommerce_db.Customer", b =>

@@ -20,8 +20,8 @@ namespace csharp_ecommerce_db
         [Column(TypeName = "decimal(10,2)")]
         public decimal Price { get; set; }
 
-        //relazione con Order
-        public List<Order> Orders { get; set; }
+        ////relazione con Order
+        //public List<Order> Orders { get; set; }
 
         //relazione con OrderProductQuantities
         public List<OrderProductQuantity> OrderProductQuantities { get; set; }

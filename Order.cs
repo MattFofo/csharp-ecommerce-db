@@ -24,8 +24,8 @@ namespace csharp_ecommerce_db
         public int CustomerId { get; set; }
         Customer Customer { get; set; }
 
-        //relazione con Product
-        public List<Product> Products { get; set; }
+        ////relazione con Product
+        //public List<Product> Products { get; set; }
 
         //relazione con OrderProductQuantities
         public List<OrderProductQuantity> OrderProductQuantities { get; set; }

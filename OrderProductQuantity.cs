@@ -12,6 +12,7 @@ namespace csharp_ecommerce_db
     internal class OrderProductQuantity
     {
         [Key]
+        [Column("product_order_quantity_id")]
         public int OrderProductQuantityId { get; set; }
 
         public int Quantity { get; set; }
