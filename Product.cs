@@ -17,6 +17,7 @@ namespace csharp_ecommerce_db
         [Required]
         public string Name { get; set; }
         public string Description { get; set; }
+        [Column(TypeName = "decimal(10,2)")]
         public decimal Price { get; set; }
 
         //relazione con Order
